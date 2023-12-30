@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>定时器</title>
+		<script>
+			var intvr;
+			window.onload=function(){
+				intvr=window.setInterval(function(){
+					d=new Date();
+					document.getElementById('clock').innerHTML=d.getHours()+":"
+					+d.getMinutes()+":"+d.getSeconds();
+				},1000)
+			}
+		</script>
+	</head>
+	<body>
+		<div id="clock"></div>
+		<button onclick="clearInterval(intvr);">停止时钟</button>
+	</body>
+</html>

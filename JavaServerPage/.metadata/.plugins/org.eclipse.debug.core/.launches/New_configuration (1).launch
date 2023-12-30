@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="com.genuitec.eclipse.ast.deploy.core.runonserver">
+<listAttribute key="org.eclipse.debug.ui.favoriteGroups">
+<listEntry value="org.eclipse.debug.ui.launchGroup.run"/>
+</listAttribute>
+<booleanAttribute key="runonserver.exploded" value="true"/>
+<stringAttribute key="runonserver.project" value="lulu"/>
+<stringAttribute key="runonserver.server" value="tomcat8Server"/>
+<booleanAttribute key="runoserver.restart" value="true"/>
+</launchConfiguration>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function a(){
+            var num = 1;
+            function b() {
+                console.log(num);
+            }
+            b();
+        }
+        a();
+
+        function say() {
+            var name = '武圣人于和';
+            var obj = {
+                name:name
+            };
+            console.log(obj.name);
+        }
+        say();
+
+        function autoAdd() {
+            var num = 1;
+            num++;
+            return num;
+        }
+        console.log(autoAdd());
+        console.log(autoAdd());
+        console.log(autoAdd());
+
+        function autoAdd2() {
+            var num = 1;
+            return function() {
+                num++;
+                return num;
+            };
+        }
+        var fun = autoAdd2();
+        console.log('-----------分割线------------');
+        console.log(fun());
+        console.log(fun());
+        console.log(fun());
+    </script>
+</body>
+</html>

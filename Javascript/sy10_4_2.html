@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var a = {
+            b:function(){
+                console.log(this.c);
+                var func=function(){
+                    console.log(this);
+                    console.log(this.c);
+                }
+                func()
+            },
+            c: 'hello'
+        }
+        a.b();
+
+        var a = {
+            b:function(){
+                var _this = this;
+                var func=function(){
+                    console.log(_this.c);
+                }
+                func();
+            },
+            c:'hello'
+        }
+        a.b();
+        console.log(a.c);
+
+        var a = {
+            b:function(){
+                var func = function(){
+                    console.log(this.c);
+
+                }.bind(this);
+                func();
+            },
+            c:'hello'
+        }
+        a.b();
+        console.log(a.c);
+
+        var a = {
+            b:function(){
+                var func = function(){
+                    console.log(this.c);
+
+                }
+               func.bind(this)();
+            },
+            c:'hello'
+        }
+    </script>
+</body>
+</html>

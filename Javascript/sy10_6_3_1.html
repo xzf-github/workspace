@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var obj1={
+            'name':'zhangsan',
+            'age':'18',
+            'language':[1,[2,3],[4,5]],
+            f1:function(){
+                return this.age + 1;
+            }
+        };
+
+        var obj3=JSON.parse(JSON.stringify(obj1));
+        obj3.name='lisi';
+        obj3.language[1]=["二","三"];
+
+        console.log('obj1',obj1)
+        console.log('obj3',obj3)
+        console.log(obj1.f1());
+        console.log(obj3.f1());
+    </script>
+</body>
+</html>

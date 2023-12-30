@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .image-container img {
+            width: 624px;
+            height: 351px;
+            margin: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div id="imageContainer" class="image-container">
+		<img src="D:\Users\26365\Pictures\云顶之弈\S9三星厄加特.泽丽.瑟庄妮.杰斯.金克斯.png" alt="S9三星厄加特.泽丽.瑟庄妮.杰斯.金克斯">
+        <img src="D:\Users\26365\Pictures\Saved Pictures\边缘行者月球双背影.jpg" alt="边缘行者">
+        <img src="D:\Users\26365\Pictures\云顶之弈\S9三星瑞兹.png" alt="S9三星">
+        <img src="D:\Users\26365\Pictures\云顶之弈\S9三星塞娜.png" alt="S9三星">
+		<img src="D:\Users\26365\Pictures\云顶之弈\S9三星狐狸.png" alt="S9三星">
+		<img src="D:\Users\26365\Pictures\云顶之弈\S9三星剑魔.jpg" alt="S9三星">
+    </div>
+    <script>
+        // 获取 imageContainer 元素和所有图片元素
+        var imageContainer = document.getElementById("imageContainer");
+        var images = imageContainer.getElementsByTagName("img");
+        // 为每个图片元素添加点击事件监听器
+        for (var i = 0; i < images.length; i++) {
+            images[i].addEventListener("click", function() {
+                // 删除该图片元素
+                this.parentNode.removeChild(this);
+            });
+        }
+    </script>
+</body>
+</html>

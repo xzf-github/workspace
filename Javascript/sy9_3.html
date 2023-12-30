@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    canvas{
+     border: solid thin lightgray;
+}
+</style>
+<body>
+    <canvas id="can" width="800" height="600"></canvas>
+    <script>
+        var canvas = document.getElementById("can");
+        function Circle(canvas,radius,X,Y,borderColor,borderWidth,bgColor){
+            this.radius=radius;
+            this.X=X;
+            this.Y=Y;
+            this.borderColor=borderColor;
+            this.borderWidth=borderWidth;
+            this.bgColor=bgColor;
+            this.canvas=canvas;
+        }
+        Circle.prototype.draw=function(){
+            if(this.canvas && this.canvas.getContext){
+                const ctx=canvas.getContext('2d');
+                ctx.beginPath();
+                ctx.arc(this.X,this.Y,this.radius,0,2*Math.PI);
+                ctx.strokeStyle=this.borderColor;
+                ctx.lineWidth=this.borderWidth;
+                ctx.stroke();
+                ctx.fillStyle =this.bgColor;
+                ctx.fill();
+                ctx.closePath;
+            }
+        }
+        var circle1=new Circle(canvas,50,100,200,'red',5,'blue');
+        circle1.draw();
+        var circle2=new Circle(canvas,30,56,90,'#452589',1,'purple');
+        circle2.draw();
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="页面跳转" onclick="goToPage()"/>
+		<script>
+			function goToPage(){
+				window.location='https://www.cnblogs.com/jiekzou/';
+			}
+			goToPage();
+			document.writeln("<br/>当前网页的网址是:"+window.location);
+			document.writeln("<br/>当前网页的主机名及端口号是:"+window.location.host);
+			document.writeln("<br/>当前网页的主机名是:"+window.location.hostname);
+			document.writeln("<br/>当前网页的文件的路径-相对路径是:"+window.location.pathname);
+			document.writeln("<br/>当前网页的端口号是:"+window.location.port);
+			document.writeln("<br/>当前网页的协议是:"+window.location.protocol);
+			document.writeln("<br/>当前网页的url地址的搜索的内容是:"+window.location.search);
+		</script>
+	</body>
+</html>

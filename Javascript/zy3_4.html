@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        #cursorPos {
+            position: absolute;
+            width: 50px;
+            height: 40px;
+            border: 1px solid black;
+            display: none;
+			transform: translateY(-100%); 
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var cursorPos = document.getElementById('cursorPos');
+            document.onmousemove = function(e) {
+                var x = e.pageX;
+                var y = e.pageY;
+                cursorPos.style.display = 'block';
+                cursorPos.style.left = x + 'px';
+                cursorPos.style.top = y + 'px';
+                cursorPos.textContent = 'X: ' + x + '\nY: ' + y;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="cursorPos"></div>
+</body>
+</html>

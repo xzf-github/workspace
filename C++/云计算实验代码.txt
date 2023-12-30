@@ -1,0 +1,181 @@
+sudo wget https://www.mpich.org/static/downloads/3.4/mpich-3.4.tar.gz
+tar -xzf mpich-3.4.tar.gz
+记得安装mpd和build-essential包
+sudo mkdir /home/mpi
+cd mpich-3.4
+./configure --with-device=ch4:ofi --disable-fortran --prefix=/home/mpi
+make
+sudo make install
+安装mpich后退回主目录
+su
+#vim .bashrc
+(.bashrc 文件误删恢复方法: sudo cp /etc/skel/.bashrc ~/ )
+export MPI_ROOT=/home/mpi
+export PATH=$MPI_ROOT/bin:$PATH
+
+sudo vim /etc/mpd.conf
+sudo touch /etc/mpd.conf
+sudo chmod 600 /etc/mpd.conf
+
+sudo vim /etc/exports
+/home 192.168.153.141/24(rw,async,no_root_squash)
+
+sudo exportfs -arv
+node4:/home /home nfs default 0 0
+sudo mount -t nfs -o nolock 192.168.153.141:/home /home
+
+/*hello.c*/
+#include <stdio.h>
+#include "mpi.h"
+int main( int argc, char *argv[] )
+{
+int rank;
+int size;
+MPI_Init( 0, 0 );
+MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+MPI_Comm_size(MPI_COMM_WORLD, &size);
+printf( "Hello world from process %d of %d\n", rank, size );
+MPI_Finalize();
+return 0;
+}
+
+/*sy2*/
+#include<stdio.h>
+#incldue<stdlib.h>
+#include<mpi.h>
+int verify(int num){
+    int digit[4],maxn,minn,diff,cnt=0;
+    do{
+        mann=0;
+        minn=0;
+        for(int i=0;i<4;i++){
+            digit[i]=num%10;
+            num/=10;
+        }
+        if(digit[0]==digit[1]&&digit[1]==digit[2]&&digit[2]==digit[3])
+        return 1;
+        qsort(digit,4,sizeof(int),cmp);
+        //构建最大值
+        for(int i=3;i>=0;i--){
+            maxn+=digit[i];
+            if(i!=0)maxn*=10;
+        }
+        //构建最小值
+        for(int i=0;i<4;i++){
+            minn+=digit[i];
+            if(i!=3)minn*=10;
+        }
+        //计算差值
+        diff=maxn-minn;
+        num=diff;
+        cnt++;
+    }while(num!=6174&&cnt<8);循环最多7次
+    if(cnt>7)return 0;
+    else return 1;
+}
+int main(int argc,char *argv[]){
+    int rank,size;
+    MPI_Status status;
+    MPI_Init(&argc,&argv);
+    MPI_Comm_rank(MPI_COMM_WORLD,&rank);
+    MPI_Comm_size(MPI_COMM_WORLD,&size);
+    if(rank==0){
+        int start=1000+rank*2250;
+        int end=1000+(rank+1)*2250;
+        int flag=1;
+        for(int i=start;i<end;i++){
+            if(!verify(i)){
+                flag=0;
+                break;
+            }
+        }
+        if(flag)printf("区间[%d,%d)内的数符合卡布列克数猜想\n",start,end);
+        else printf("区间[%d,%d)内的数不符合卡布列克数猜想\n",start,end);
+    }else{
+        int start=1000+rank*2250;
+        int end=1000+(rank+1)*2250;
+        int flag=1;
+        for(int i=start;i<end;i++){
+            if(!verify(i)){
+                flag=0;
+                break;
+            }
+        }
+        if(flag)printf("区间[%d,%d)内的数符合卡布列克数猜想\n",start,end);
+        else printf("区间[%d,%d)内的数不符合卡布列克数猜想\n",start,end);    
+    }
+    MPI_Finalize();
+    return 0;
+}
+
+/*sy3*/
+#include<stdio.h>
+#incldue<stdlib.h>
+#include<time.h>
+#include<mpi.h>
+#define N 1e8
+#define d 1e-8
+int main(int argc,char *argv[]){
+    int rank,size,error,i,result=0,sum=0;
+    double pi=0.0,begin=0.0,end=0.0,x,y;
+    MPI_Status status;
+    error=MPI_Init(&argc,&argv);
+    MPI_Comm_rank(MPI_COMM_WORLD,&rank);
+    MPI_Comm_size(MPI_COMM_WORLD,&size);
+    MPI_Barrier(MPI_COMM_WORLD);
+    begin=MPI_Wtime();
+    srand((int)time(0));
+    //蒙特卡洛法
+    for(i=rank,i<N;i+=size()){
+        x=rand()/(RAND_MAX+1.0);
+        y=rand()/(RAND_MAX+1.0);
+        if(x*x+y*y<1.0)result++;
+    }
+    //统计所有结果
+    MPI_Reduce(&result,&sum,1,MPI_INT,MPI_SUM,0,MPI_COMM_WORLD);
+    MPI_Barrier(MPI_COMM_WORLD);
+    end=MPI_Wtime();
+    if(rank==0){
+        pi=4*d*sum;
+        printf("运行时间=%fs\nPI=%f\n",end-begin,pi);
+    }
+    MPI_Finalize();
+    return 0;
+}
+
+/*sy4*/
+#include<stdio.h>
+#incldue<stdlib.h>
+#include<time.h>
+#include<mpi.h>
+#include<math.h>
+#define ull unsigned long long
+int hail(ull n){
+    while(n!=1){
+        if(n%2)n=n*3+1;
+        else n/=2;
+    }
+    return 1;
+}
+int main(int argc,char *argv[]){
+    int rank,size,flag=1;
+    double be,ed;
+    MPI_Init(&argc,&argv);
+    MPI_Comm_rank(MPI_COMM_WORLD,&rank);
+    MPI_Comm_size(MPI_COMM_WORLD,&size);
+    MPI_Barrier(MPI_COMM_WORLD);be=MPI_Wtime();
+    ull maximum=(ull)(pow(2,20));
+    ull start=1+maximum*rank/4,end=1+maximum*(rank+1)/4;
+    for(ull i=start;i<end;i++)
+        if(!hail(i)){
+            flag=0;break;
+        }
+    printf("区间[%llu,%llu)",start,end);
+    if(!flag)printf("不");
+    printf("符合角谷猜想\n");
+    MPI_Barrier(MPI_COMM_WORLD);ed=MPI_Wtime();
+    if(rank==0)
+    printf("验证范围为1-%llu\n耗时:%fs\n",maximum,ed-be);
+    MPI_Finalize();
+    return 0;
+}

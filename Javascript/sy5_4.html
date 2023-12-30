@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div>三秒后显示</div>
+		<script>
+			setTimeout(function(){
+				alert('你好,我是延时器启动后执行的语句.')
+			},3000)
+		</script>
+		<button onclick="startInterval()">显示时间</button>
+		<div id="clock"></div>
+		<script>
+			function startInterval(){
+				showTime();
+				setTimeout(startInterval,1000);
+			}
+			function showTime(){
+				d=new Date();
+				document.getElementById('clock').innerHTML=d.getHours()+":"
+				+d.getMinutes()+":"+d.getSeconds();
+			}
+		</script>
+	</body>
+</html>

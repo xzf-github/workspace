@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>5.键盘事件(通过键盘方向键移动对象)</title>
+		<style>
+			img{
+				width: 200px;
+				height: 100px;
+				position: absolute;
+				top: 10px;
+			}
+			.right{
+				transform: rotateY(180deg);
+			}
+			.up{
+				transform: rotate(90deg);
+			}
+			.down{
+				transform: rotate(270deg);
+			}
+			#img1{
+				right:20px;
+			}
+			#img2{
+				left: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<img src="./images/insect.png" id="img1"/>
+		<img src="./images/insect.png" id="img2"/>
+		<script>
+			var step=5;
+			var img1=document.getElementById('img1');
+			var img2=document.getElementById('img2');
+			document.onkeydown=function(event){
+				console.log(event.keyCode)
+				switch(event.keyCode){
+					case 37://左
+						img1.style.left=img1.offsetLeft-step+'px';
+						img1.classList.remove("up");
+						img1.classList.remove("right");
+						img1.classList.remove("down");
+						break;
+					case 38://上
+						img1.style.top=img1.offsetTop-step+'px';
+						img1.classList.add("up");
+						img1.classList.remove("right");
+						img1.classList.remove("down");
+						break;
+					case 39://右
+						img1.style.left=img1.offsetLeft+step+'px';
+						img1.classList.add("right");
+						img1.classList.remove("down");
+						img1.classList.remove("up");
+						break;
+					case 40://下
+						img1.style.top=img1.offsetTop+step+'px';
+						img1.classList.add("down");
+						img1.classList.remove("right");
+						img1.classList.remove("up");
+						break;
+					case 65:
+						img2.style.left=img2.offsetLeft-step+'px';
+						img2.classList.remove("up");
+						img2.classList.remove("right");
+						img2.classList.remove("down");
+						break;
+					case 87:
+						img2.style.top=img2.offsetTop-step+'px';
+						img2.classList.add("up");
+						img2.classList.remove("right");
+						img2.classList.remove("down");
+						break;
+					case 68:
+						img2.style.left=img2.offsetLeft+step+'px';
+						img2.classList.add("right");
+						img2.classList.remove("down");
+						img2.classList.remove("up");
+						break;
+					case 83:
+						img2.style.top=img2.offsetTop+step+'px';
+						img2.classList.add("down");
+						img2.classList.remove("right");
+						img2.classList.remove("up");
+						break;
+				}
+			}
+		</script>
+	</body>
+</html>

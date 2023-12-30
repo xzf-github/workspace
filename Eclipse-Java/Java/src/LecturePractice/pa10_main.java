@@ -1,0 +1,12 @@
+package LecturePractice;
+public class pa10_main {
+	    public static void main(String[] args) {  
+	        Bank bank = new Bank();  
+	        Customer customer1 = new Customer(bank, 3);  
+	        Customer customer2 = new Customer(bank, 3);  
+	        Thread thread1 = new Thread(customer1);  
+	        Thread thread2 = new Thread(customer2);  
+	        thread1.start();  
+	        thread2.start();  
+	    }  
+}

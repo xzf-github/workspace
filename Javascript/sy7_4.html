@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.特殊键检测（阻止通过按ctrl+c进行复制操作）</title>
+    <script>
+        window.onload=function(){
+            document.onkeydown=function(event){
+                console.log(event.ctrlKey,event.keyCode);
+                if(event.ctrlKey && event.keyCode== 67 || event.keyCode ==123){
+                    event.keyCode = 0;
+                    event.returnValue = false;
+                    return false;
+                }
+            }
+
+        }
+    </Script>
+</head>
+<body>
+    <div>
+        阻止按ctrl+c进行复制
+    </div>
+    <input type="text" id="v1">
+    <div id="divShow"></div>
+    
+</body>
+</html>

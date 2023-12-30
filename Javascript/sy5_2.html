@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<button onclick="OpenWin()">打开一个400*400的窗口</button>
+	<button onclick="MoveWin()">移动窗口</button>
+	<button onclick="GotoWin()">定位窗口</button>
+	<button onclick="ResizeWin()">改变本窗口大小(无效)</button>
+	<button onclick="ResizeChildrenWin()">改变子窗口大小</button>
+	<button onclick="ModifyWinContent()">往窗口中添加内容窗口(覆盖)</button>
+	<button onclick="ModifyWinContent2()">往窗口中添加内容窗口(添加)</button>
+	<button onclick="CloseChildWin()">关闭子窗口</button>
+	<button onclick="CloseWin()">关闭本窗口</button>
+	<script>
+		window.onload=function(){
+			alert("这是打开窗口前的提示.")
+		}
+		var w;
+		function OpenWin(){
+			w=open("blank.html","_blank","width=400,height=400");
+		}
+		function MoveWin(){
+			w.moveBy(50,40);
+		}
+		function GotoWin(){
+			w.moveTo((screen.width-400)/2,(screen.height-400)/2);
+		}
+		function ResizeWin(){
+			window.resizeBy(-20,-20);
+		}
+		function ResizeChildrenWin(){
+			w.resizeBy(20,20);
+		}
+		function ModifyWinContent(){
+			w.document.write("<p>这是主窗口添加过来的内容.注意,这个内容把原内容覆盖了.</p>")
+		}
+		function ModifyWinContent2(){
+			let div =w.document.createElement('div');
+			div.innerHTML='<p>这是主窗口添加过来的内容.</p>';
+			w.document.body.appendChild(div);
+		}
+		function CloseChildWin(){
+			w.close();
+		}
+		function CloseWin(){
+			close();
+		}
+		window.onbeforeunload=function(){
+			return "确认关闭吗"
+		};
+		window.onunload=function(){
+			console.log("卸载之前的处理")
+		}
+	</script>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6.页面文本选择</title>
+    <script>
+        window.onload=function(){
+            document.getElementById("v1").onselect=function(event){
+                console.log(event);
+                document.getElementById("divShow").innerText = "选择的文本："
+                +document.getSelection() +";起始位置："+this.selectionStart
+                +",结束位置："+this.selectionEnd;
+                document.execCommand('copy');
+                alter("已复制到剪切板");
+            }
+            document.onselectstart=function(event){
+                document.getElementById("divShow").innerText="开始选择：";
+            }
+            document.onselectionchange=function(event){
+                document.getElementById("divShow").innerText="开始选择："+document.getSelection();
+            }
+        }
+    </script>
+</head>
+<div onselectstart="return false;">这是一个不可选择的文本。</div>
+<div > 这是一个可选择的文本。</div>
+<input type="text" id="v1" value="这里的文字也可以被选择">    <input type="text" id="v2">
+<div id ="divShow"></div>
+</body>
+</html>

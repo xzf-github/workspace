@@ -1,0 +1,19 @@
+str=input("请输入一行字符:\n")
+#分别表示大写,小写,空格,数字,其他字符个数
+cnt=[0,0,0,0,0]
+for i in str:
+    if(i.isupper()):
+        cnt[0]+=1
+    elif(i.islower()):
+        cnt[1]+=1
+    elif(i.isspace()):
+        cnt[2]+=1
+    elif(i.isdigit()):
+        cnt[3]+=1
+    else:
+        cnt[4]+=1
+print("{0}中\n大写英文字母有{1}个、小写字母{2}个、空格{3}个、数字{4}个和其他字符{5}个"
+      .format(str,cnt[0],cnt[1],cnt[2],cnt[3],cnt[4]))
+'''
+编写程序，统计所输入字符串中大写英文字母、小写英文字母，空格、数字和其它字符的个数。
+'''

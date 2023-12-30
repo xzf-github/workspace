@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.拖动对象</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        #box{
+            width: 50px;
+            height: 50px;
+            background-color: blueviolet;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script type="text/javascript">
+        const oDiv=document.getElementById('box');
+        function limitDrag(node){
+            node.onmousedown=function(ev){
+            let e = ev||window.event;
+            let offSetX=e.clientX-node.offsetLeft;
+            let offSetY=e.clientY-node.offsetTop;
+            document.onmousemove=function(ev){
+                let e = ev||window.event;
+                let x=e.clientX-offSetX;
+                let y=e.clientY-offSetY;
+                let Width=document.documentElement.clientWidth||document.body.clientWidth;
+                let Height=document.documentElement.clientHeight||document.body.clientHeight;
+                if(x<=0){
+                    x=0;
+                }
+                if(x>=Width-node.offsetWidth){
+                    x=Width-node.offsetWidth;
+                }
+                if(y<=0){
+                    y=0;
+                }
+                if(y>=Height-node.offsetHeight){
+                    y=Height-node.offsetHeight;
+                }
+                node.style.left=x+'px';
+                node.style.top=y+'px';
+            }
+        }
+        document.onmouseup=function(){
+            document.onmousemove=null;
+        }
+    }
+        limitDrag(oDiv);
+    </script>
+</body>
+</html>

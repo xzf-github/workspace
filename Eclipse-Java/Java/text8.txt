@@ -1,0 +1,3 @@
+television,2567/台
+clotheswasher,3562/台
+refrigerator,6573/台

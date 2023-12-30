@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>学生信息表</title>
+</head>
+<body>
+  <h1>学生信息表</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>学号</th>
+        <th>姓名</th>
+        <th>总成绩</th>
+      </tr>
+    </thead>
+    <tbody id="student-table">
+    </tbody>
+  </table>
+  <script>
+    // 创建一个空数组来存储学生信息
+    var students = [];
+
+    // 录入学生信息
+    for (var i = 0; i < 10; i++) {
+      var student = {}; // 创建一个空对象来存储每个学生的信息
+      student.id = prompt("请输入学生学号：");
+      student.name = prompt("请输入学生姓名：");
+      student.score = parseInt(prompt("请输入学生总成绩："));
+      students.push(student); // 将学生信息添加到数组中
+    }
+
+    // 按学号排序
+    students.sort(function(a, b) {
+      return a.id.localeCompare(b.id);
+    });
+
+    // 按姓名排序
+    students.sort(function(a, b) {
+      return a.name.localeCompare(b.name);
+    });
+
+    // 按总成绩排序
+    students.sort(function(a, b) {
+      return b.score - a.score;
+    });
+
+    // 显示排序后的学生信息
+    var tableBody = document.getElementById("student-table");
+    for (var i = 0; i < students.length; i++) {
+      var row = document.createElement("tr");
+      var idCell = document.createElement("td");
+      var nameCell = document.createElement("td");
+      var scoreCell = document.createElement("td");
+      idCell.textContent = students[i].id;
+      nameCell.textContent = students[i].name;
+      scoreCell.textContent = students[i].score;
+      row.appendChild(idCell);
+      row.appendChild(nameCell);
+      row.appendChild(scoreCell);
+      tableBody.appendChild(row);
+    }
+  </script>
+</body>
+</html>

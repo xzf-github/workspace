@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>4.Document对象(Dom元素创建于删除)</title>
+		<style type="text/css">
+			#Container{
+				width:31.25rem;
+			}
+			table{
+				border-collapse: collapse;
+				border:solid thin black;
+				width:31.25rem;
+			}
+			tr th{
+				background-color: #EFEFEF;
+			}
+			table td{
+				padding:0.1875rem;
+				text-align:center;
+			}
+			tr.active{
+				background-color: #10AEFF;
+				color: white;
+			}
+			fieldset label{
+				width:3rem;
+				text-align: center;
+				display:inline-block;
+			}
+		</style>
+		<script type="text/javascript">
+			var trToEdit;
+			window.onload=function(){
+				table=document.getElementById("list");
+				document.getElementById("btnSave").addEventListener("click",function(){
+					var username =document.getElementById("username").value;
+					var realname =document.getElementById("realname").value;
+					if(!username.trim()||!realname.trim()){
+						alert("用户名和姓名必须提供 ");
+						return;
+					}
+					var sex;
+					var objSex=document.getElementsByName("sex");
+					for(var i=0;i<objSex.length;i++){
+						if(objSex[i].checked){
+							sex=objSex[i].value;
+						}
+					}
+					var age=document.getElementById("age").value;
+					var occupation=document.getElementById("occupation").value;
+					if(trToEdit){
+						trToEdit.childNodes[0].textContent=username;
+						trToEdit.childNodes[1].textContent=realname;
+						trToEdit.childNodes[2].textContent=sex;
+						trToEdit.childNodes[3].textContent=age;
+						trToEdit.childNodes[4].textContent=occupation;
+						trToEdit=null;
+					}else{
+						var tr=document.createElement("tr");
+						tr.addEventListener("click",function(e){
+							table.getElmentsByTagName("tbody")[0].childNodes.forEach(function(item,i){
+								if(tr==item){
+									tr.classList.toggle("active");
+								}else if(item.nodeType==Node.ELEMENT_NODE){
+									item.classList.remove("active");
+								}
+							})
+						});
+						var tdUserName=document.createElement("td");
+						tdUserName.textContent=username;
+						tr.appendChild(tdUserName);
+						tr.insertAdjacentHTML("beforeend",`<td>${realname}</td>`);
+						tr.insertAdjacentHTML("beforeend",`<td>${sex}</td>`);
+						tr.insertAdjacentHTML("beforeend",`<td>${age}</td>`);
+						tr.insertAdjacentHTML("beforeend",`<td>${occupation}</td>`);
+						table.getElementsByTagName("tbody")[0].appendChild(tr);
+					}
+					document.forms[0].reset();
+				})
+				document.getElementById("btnEdit").addEventListener("click",function(){
+					trToEdit=Array.from(table.getElementsByTagName("tbody")[0].children).find(function(item,i){
+						if(item.previousElementSibling!=null&&item.classList.contains("active"))return item;
+					})
+					if(trToEdit){
+						document.getElementById("username").value=trToEdit.children[0].textContent;
+						document.getElementById("realname").value=trToEdit.children[1].textContent;
+						var objSex=document.getElementsByName("sex");
+						for(var i=0;i<objSex.length;i++){
+							if(objSex[i].value==trToEdit.children[2].textContent){
+								objSex[i].checked=true;
+								break;
+							}
+						}
+						document.getElementById("age").value=trToEdit.children[3].textContent;
+						document.getElementById("occupation").value=trToEdit.children[4].textContent;
+					}else alert("未选择条目");
+				})
+				document.getElementById("btnRemove").addEventListener("click", function(){
+					var tr = Array.from(table.getElementsByTagName("tbody")[0].children).find(function(item, i){
+						return item;
+					})
+					if(tr){
+						if(window.confirm("确认删除吗?")){
+							tr.remove();
+						}
+					}else{
+						alert("未选择条目")
+					}
+				})
+			}
+		</script>
+	</head>
+	<body>
+		<div id="container">
+			<form action="" method="post">
+				<fieldset>
+					<legend>编辑用户信息</legend>
+					<label for="username">用户名</label><input type="text" name = "username" id = "username" /><br />
+					<label for="realname">姓名</label><input type="text" name = "realname" id = "realname" /><br />
+					<label>性别</label><input type="radio" name = "sex" id = "sex1" value="男" /><label for="sex1" >男</label>
+					<input type="radio" name = "sex" id = "sex2" value="女" /><label for="sex2">女</label><br />
+					<label for="age">年龄</label><input type="number" name = "age" id="age" /><br />
+					<label for="occupation">职业</label><input type="text" name = "occupation" id ="occupation" /><br />
+					<input type="button" id="btnSave" value="保存" /><input type="reset" id="btnReset" value="重填" />
+				</fieldset>
+			</form>
+			<div id="buttons">
+				<button type="button" id="btnEdit" title="编辑选中行">编辑</button>
+				<button type="button" id="btnRemove" title="删除选中行">删除</button>
+			</div>
+		</div>
+		<table id="list" border="" cellspacing="" cellpadding="">
+			<tr>
+				<th>用户名</th>
+				<th>姓名</th>
+				<th>性别</th>
+				<th>年龄</th>
+				<th>职业</th>
+			</tr>
+		</table>
+	</body>
+</html>

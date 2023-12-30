@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>创建画图对象--构造函数法</title>
+    <style>
+        canvas{
+            border:solid thin lightgray;
+        }
+    </style>
+</head>
+<body>
+    <canvas id = "can" width="800" height="600"></canvas>
+    <script>
+        var canvas = document.getElementById("can");
+        function CreateCircle(canva,radius,X,Y,borderColor,boderWidth,bgColor){
+            this.radius=radius;
+            this.X=X;
+            this.Y=Y;
+            this.borderColor=borderColor;
+            this.boderWidth=boderWidth;
+            this.bgColor=bgColor;
+            this.draw=function(){
+                if(canvas && canvas.getContext){
+                    const ctx = canvas.getContext('2d');
+                    ctx.beginPath();
+                    ctx.arc(X,Y,radius,0,2*Math.PI);
+                    ctx.strokeStyle=this.borderColor;
+                    ctx.lineWidth = this.boderWidth;
+                    ctx.stroke();
+                    ctx.fillStyle=bgColor;
+                    ctx.fill();
+                    ctx.closePath();
+                }
+            }
+        }
+        var circle1 = new CreateCircle(canvas,150,300,200,'red','5','blue');
+        circle1.draw();
+        var circle2=new CreateCircle(canvas,30,96,60,'#452589',1,'purple');
+        circle2.draw();
+    </script>
+</body>
+</html>

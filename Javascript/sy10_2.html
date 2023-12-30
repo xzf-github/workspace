@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function test() {}
+            let t1=new test();
+            console.log(t1._proto_===test.prototype)
+            console.log(Object.getPrototypeOf(t1)===test.prototype)
+
+            var Person=function(){};
+            Person.prototype.introduce=function(){
+                alert("My Name is "+this.name+",I am "+this.age+"years old");
+            };
+            Person.prototype.age=21;
+            var p=new Person();
+            p.name="XZF";
+            p.introduce();
+        
+    </script>
+</body>
+</html>

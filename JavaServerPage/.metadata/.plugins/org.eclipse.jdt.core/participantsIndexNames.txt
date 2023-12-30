@@ -1,0 +1,23 @@
+INDEX VERSION 1.126
+D:\Workspace\JavaServerPage\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2472540294.index
+\JSPofXZF\src
+D:\Workspace\JavaServerPage\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\727377745.index
+\temp0\src
+D:\Workspace\JavaServerPage\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3795426597.index
+\hello\src
+D:\Workspace\JavaServerPage\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\383050241.index
+\JSPLecture\src
+D:\Workspace\JavaServerPage\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2268362585.index
+\lulu\src
+D:\Workspace\JavaServerPage\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\708592897.index
+\sy3&4\src
+D:\Workspace\JavaServerPage\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2916976280.index
+\JSPLecture\src
+D:\Workspace\JavaServerPage\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4030117208.index
+\sy3\src
+D:\Workspace\JavaServerPage\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2488785041.index
+\sy4\src
+D:\Workspace\JavaServerPage\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2641605125.index
+\temp0\src
+D:\Workspace\JavaServerPage\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\15043878.index
+\xzf\src

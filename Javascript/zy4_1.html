@@ -1,0 +1,33 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+  <title>页面活动检测</title>  
+</head>  
+<body>  
+  <h1>请在此页面上操作,或者等待3分钟</h1>  
+  
+  <script>  
+    // 定义一个变量来记录页面活动时间  
+    var pageActive = new Date().getTime();  
+  
+    // 监听鼠标和键盘事件  
+    document.addEventListener('mousemove', updateActiveTime);  
+    document.addEventListener('keydown', updateActiveTime);  
+  
+    function updateActiveTime() {  
+      // 更新页面活动时间  
+      pageActive = new Date().getTime();  
+    }  
+  
+    // 设置定时器，每30秒检查一次页面是否处于活动状态  
+    setInterval(function() {  
+      var currentTime = new Date().getTime();  
+      // 如果页面已经不活动，并且距离上次活动的时间已经超过3分钟，则弹出对话框  
+      if (currentTime - pageActive > 3 * 60 * 1000 
+      && confirm('你已经3分钟没有操作此页面了')) {  
+        window.location.reload(); // 如果点击确定，刷新页面  
+      }  
+    }, 30000); // 30秒执行一次  
+  </script>  
+</body>  
+</html>

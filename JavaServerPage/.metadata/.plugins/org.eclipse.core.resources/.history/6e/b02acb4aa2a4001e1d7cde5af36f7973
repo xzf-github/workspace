@@ -1,0 +1,56 @@
+<%@ page import="java.sql.Connection" %>
+<%@ page import="java.sql.DriverManager" %>
+<%@ page import="java.sql.Statement" %>
+<%@ page import="java.sql.ResultSet" %>
+<%@ page contentType="text/html; charset=gb2312" language="java" %>
+<%request.setCharacterEncoding("gb2312"); %>
+<script language="JavaScript">
+function check(theForm)
+{
+  if (theForm.bjbh.value.length !=9)
+  {
+    alert("班级编号必须为9位！");
+    theForm.bjbh.focus();
+    return (false);
+  }  
+  if (theForm.bjmc.value == "")
+  {
+    alert("请输入班级名称！");
+    theForm.bjmc.focus();
+    return (false);
+  }
+  return (true);
+}
+</script>
+<html>
+<head>
+   <title>班级信息修改</title>
+</head>
+<body>
+<%
+  String bjbh = request.getParameter("bjbh");
+%>
+<div align="center">
+    <form action="BjxgServlet" method="post" onSubmit="return check(this)">
+        <h2 align="center">班级信息修改</h2>
+        <table>
+            <tr>
+                <td>班级班号</td>
+                <td>
+                    <input type="text" name="bjbh" readonly  unselectable="on" value=<%=bjbh%>>
+                </td>
+            </tr>
+             <tr>
+                <td>班级名称</td>
+                <td><input type="text" name="bjmc"/></td>
+            </tr>
+        </table>
+        <p>
+            <input type="submit" value="确定"/>
+            <input type="button" onclick="window.location.href='class.jsp';" value="返回">
+            
+        </p>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>创建画圆对象</title>
+    <style>
+        canvas{
+            border: solid thin lightgray;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="can" width="800" height="600" ></canvas>
+    <script>
+        var canvas=document.getElementById("can");
+        function CreateCircle(canvas,radius,X,Y,borderColor,borderWidth,bgColor){
+            var obj=new Object();
+            obj.radius=radius;
+            obj.X=X;
+            obj.Y=Y;
+            obj.borderColor=borderColor;
+            obj.borderWidth=borderWidth;
+            obj.bgColor=bgColor;
+            obj.draw=function(){
+                if(canvas && canvas.getContext){
+                    const ctx=canvas.getContext('2d');
+                    ctx.beginPath();
+                    ctx.arc(X,Y,radius,0,2*Math.PI);
+                    ctx.strokeStyle=this.borderColor;
+                    ctx.linWidth=this.borderWidth;
+                    ctx.stroke();
+                    ctx.fillSytle=bgColor;
+                    ctx.fill();
+                    ctx.closePath();
+                }
+            }
+            return obj;
+        }
+        var circle1=CreateCircle(canvas,150,300,200,'red',5,'blue');
+        circle1.draw();
+        var circle2=CreateCircle(canvas,30,96,60,'#452589',1,'purple');
+        circle2.draw();
+    </script>
+</body>
+</html>

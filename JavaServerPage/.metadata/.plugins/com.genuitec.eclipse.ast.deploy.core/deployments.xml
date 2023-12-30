@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<deployments>
+  <deployment alt-context-root="" context-root="/sy3" deployment-path="D:/Program Files/Apache Software Foundation/Tomcat 8.0/webapps/sy3" project-name="sy3" server-id="tomcat8Server" state="ERROR" status="Project modules hierarchy is inconsistent with deployment" type="WEB"/>
+  <deployment alt-context-root="" context-root="/sy3&amp;4" deployment-path="D:/Program Files/Apache Software Foundation/Tomcat 8.0/webapps/sy3&amp;4" project-name="sy3&amp;4" server-id="tomcat8Server" state="DEPLOYED" type="WEB"/>
+  <deployment alt-context-root="" context-root="/sy4" deployment-path="D:/Program Files/Apache Software Foundation/Tomcat 8.0/webapps/sy4" project-name="sy4" server-id="tomcat8Server" state="DEPLOYED" type="WEB"/>
+</deployments>
