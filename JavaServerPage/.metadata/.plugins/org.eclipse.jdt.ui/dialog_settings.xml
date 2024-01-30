@@ -69,6 +69,6 @@
 	</section>
 	<section name="NewJspCreationWizardPage">
 		<item value="Default JSP template" key="templatezh_CN"/>
-		<item value="/sy4/WebRoot" key="filePath"/>
+		<item value="/sy3&amp;4/WebRoot" key="filePath"/>
 	</section>
 </section>

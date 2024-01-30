@@ -2,9 +2,11 @@
 <%request.setCharacterEncoding("utf-8"); %>
 <html>
 	<head>
-		<title>登录成功</title>
+		<title>登录失败</title>
 	</head>
 	<body>
-		xzf,登陆失败
+	<%
+		out.print("账号或密码错误,登录失败"); 
+	%>
 	</body>
 </html>

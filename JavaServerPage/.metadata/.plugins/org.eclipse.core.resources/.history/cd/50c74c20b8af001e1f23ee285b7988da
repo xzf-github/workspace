@@ -1,0 +1,23 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>  
+<!DOCTYPE html>  
+<html>  
+<head>  
+<meta charset="UTF-8">  
+<title>站点计数器</title>  
+</head>  
+<body>  
+    <%  
+        int count = (Integer) session.getAttribute("count");  
+        if (count == 0) {  
+
+            count = 1;  
+        } else {  
+ 
+            count++;  
+        }  
+
+        session.setAttribute("count", count);  
+    %>  
+    <h1>本站点访问次数: <%= count %></h1>  
+</body>  
+</html>
