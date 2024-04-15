@@ -1,5 +1,5 @@
 package LecturePractice;
-class bank{
+class Bank{
 	int savedMoney;
 	int year;
 	double interest;

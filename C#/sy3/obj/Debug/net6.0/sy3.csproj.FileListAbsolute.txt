@@ -1,0 +1,14 @@
+D:\Workspace\C#\sy3\bin\Debug\net6.0\sy3.exe
+D:\Workspace\C#\sy3\bin\Debug\net6.0\sy3.deps.json
+D:\Workspace\C#\sy3\bin\Debug\net6.0\sy3.runtimeconfig.json
+D:\Workspace\C#\sy3\bin\Debug\net6.0\sy3.dll
+D:\Workspace\C#\sy3\bin\Debug\net6.0\sy3.pdb
+D:\Workspace\C#\sy3\obj\Debug\net6.0\sy3.GeneratedMSBuildEditorConfig.editorconfig
+D:\Workspace\C#\sy3\obj\Debug\net6.0\sy3.AssemblyInfoInputs.cache
+D:\Workspace\C#\sy3\obj\Debug\net6.0\sy3.AssemblyInfo.cs
+D:\Workspace\C#\sy3\obj\Debug\net6.0\sy3.csproj.CoreCompileInputs.cache
+D:\Workspace\C#\sy3\obj\Debug\net6.0\sy3.dll
+D:\Workspace\C#\sy3\obj\Debug\net6.0\refint\sy3.dll
+D:\Workspace\C#\sy3\obj\Debug\net6.0\sy3.pdb
+D:\Workspace\C#\sy3\obj\Debug\net6.0\sy3.genruntimeconfig.cache
+D:\Workspace\C#\sy3\obj\Debug\net6.0\ref\sy3.dll

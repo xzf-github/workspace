@@ -1,0 +1,8 @@
+D:\Workspace\C#网络编程\WpfApp1\sy2\obj\Debug\sy2.csproj.AssemblyReference.cache
+D:\Workspace\C#网络编程\WpfApp1\sy2\obj\Debug\UserControls\MyRibbonTab.baml
+D:\Workspace\C#网络编程\WpfApp1\sy2\obj\Debug\MainWindow.g.cs
+D:\Workspace\C#网络编程\WpfApp1\sy2\obj\Debug\UserControls\MyRibbonTab.g.cs
+D:\Workspace\C#网络编程\WpfApp1\sy2\obj\Debug\App.g.cs
+D:\Workspace\C#网络编程\WpfApp1\sy2\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Workspace\C#网络编程\WpfApp1\sy2\obj\Debug\sy2_MarkupCompile.cache
+D:\Workspace\C#网络编程\WpfApp1\sy2\obj\Debug\sy2_MarkupCompile.lref

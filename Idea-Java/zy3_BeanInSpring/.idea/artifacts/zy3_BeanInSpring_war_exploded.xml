@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="zy3_BeanInSpring:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/zy3_BeanInSpring_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="zy3_BeanInSpring/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="zy3_BeanInSpring" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

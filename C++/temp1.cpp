@@ -1,12 +1,6 @@
-#include<bits/stdc++.h>
-using namespace std;
-void test(int &x){
-    x=1024;
-}
+#include<stdio.h>
 int main(){
-    int x=1;
-    printf("调用前x的值为%d\n",x);
-    test(x);
-    printf("调用后x的值为%d\n",x);
-    return 0;
+    int a=1,b=1,c=1,t;
+    t=++a||++b&&++c;
+    printf("a=%d\nb=%d\nc=%d\nt=%d",a,b,c,t);
 }

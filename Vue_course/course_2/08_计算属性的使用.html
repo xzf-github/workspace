@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="test">
+        总分：{{getScoreSum}}
+        总分：{{getScoreSum}}
+        总分：{{getScoreSum}}
+        总分：{{getScoreSum}}
+        总分：{{getScoreSum}}
+        <br>
+        总分1：{{getScoreSum1()}}
+        总分1：{{getScoreSum1()}}
+        总分1：{{getScoreSum1()}}
+        总分1：{{getScoreSum1()}}
+        总分1：{{getScoreSum1()}}
+    </div>
+    <script src="./vue2.js"></script>
+    <script>
+        new Vue(
+            {
+                el: '#test',
+                data: {
+                    students:[
+                        {name:'张三', score: 70},
+                        {name:'李四', score: 75}
+                    ]
+                },
+                computed:{
+                    // 如果数据不改变，只需要计算一次，计算以后结果存入缓存，后面每次调用不需要计算
+                    getScoreSum(){
+                        console.log("计算属性被调用了！！");
+                        let sum = 0
+                        // 获取所有学生的成绩
+                        for(let i =0; i < this.students.length; i++){
+                            sum += this.students[i].score
+                        }
+                        return sum
+                    }
+                },
+                methods:{
+                    // 没调用一次都需要重新计算
+                    getScoreSum1(){
+                        console.log("函数方法被调用了！");
+                        let sum = 0
+                        // 获取所有学生的成绩
+                        for(let i =0; i < this.students.length; i++){
+                            sum += this.students[i].score
+                        }
+                        return sum
+                    }
+                }
+            }
+        )
+    </script>
+</body>
+</html>

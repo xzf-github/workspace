@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="test">
+			<button v-on:click="count++">新增</button>
+			<span>{{count}}</span>
+			<button v-on:click="count--">减少</button>
+		</div>
+		<script src="vue.js"></script>
+		<script>
+			new Vue({
+				el:'#test',
+				data:{
+					count:0,
+				}
+			})
+		</script>
+	</body>
+</html>

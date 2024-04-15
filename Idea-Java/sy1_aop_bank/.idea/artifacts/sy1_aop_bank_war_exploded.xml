@@ -1,0 +1,17 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="sy1_aop_bank:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/sy1_aop_bank_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="sy1_aop_bank/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="sy1_aop_bank" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="application" name="aspectjrt" />
+          <element id="library" level="application" name="commons-logging-1.2-javadoc" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

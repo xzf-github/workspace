@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">  
+		<ul>  
+		  <li v-for="(number, index) in numbers" :key="index">  
+			{{ number }}  
+			<button @click="fun2(index)">删除</button>  
+		  </li>  
+		</ul>  
+		<button @click="fun1">生成</button>  
+		</div>  
+		<script src="vue.js"></script>
+		<script>  
+		new Vue({ 
+			el:'#app',
+			data:{  
+			  numbers: [8,88,888],
+			},  
+			methods: {  
+				fun1() {  
+				  const num = Math.floor(Math.random() * 20) + 1;  
+				  this.numbers.push(num);  
+				},  
+				fun2(index) {  
+				  this.numbers.splice(index, 1);  
+				}  
+			}  
+		});  
+		</script>
+	</body>
+</html>

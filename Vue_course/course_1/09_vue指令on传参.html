@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	<style>
+	    .box {
+	      border: 3px solid #000000;
+	      border-radius: 10px;
+	      padding: 20px;
+	      margin: 20px;
+	      width: 200px;
+	    }
+	    h3 {
+	      margin: 10px 0 20px 0;
+	    }
+	    p {
+	      margin: 20px;
+	    }
+	  </style>
+	</head>
+	<body>
+	  <div id="app">
+	    <div class="box">
+	      <h3>湖工超多课自动售货机</h3>
+	      <button @click="mod(0)">可口可乐0元购</button>
+	      <button @click="mod(9)">瑞幸咖啡9元</button>
+		  <button @click="mod(5)">只需5元脉动回来</button>
+	    </div>
+	    <p>银行卡余额：{{money}}元</p>
+	  </div>
+	  <script src="./vue.js"></script>
+	  <script>
+	    const app = new Vue({
+	      el: '#app',
+	      data: {
+	        money:1000,
+	      },
+		  methods:{
+			  mod(n){
+				  this.money-=n;
+			  }
+		  }
+	    })
+	  </script>
+	</body>
+</html>

@@ -1,0 +1,15 @@
+D:\Workspace\C#网络编程\WpfApp1\sy3.2\bin\Debug\sy3.2.exe.config
+D:\Workspace\C#网络编程\WpfApp1\sy3.2\bin\Debug\sy3.2.exe
+D:\Workspace\C#网络编程\WpfApp1\sy3.2\bin\Debug\sy3.2.pdb
+D:\Workspace\C#网络编程\WpfApp1\sy3.2\obj\Debug\sy3.2.csproj.AssemblyReference.cache
+D:\Workspace\C#网络编程\WpfApp1\sy3.2\obj\Debug\MainWindow.g.cs
+D:\Workspace\C#网络编程\WpfApp1\sy3.2\obj\Debug\App.g.cs
+D:\Workspace\C#网络编程\WpfApp1\sy3.2\obj\Debug\sy3.2_MarkupCompile.cache
+D:\Workspace\C#网络编程\WpfApp1\sy3.2\obj\Debug\sy3.2_MarkupCompile.lref
+D:\Workspace\C#网络编程\WpfApp1\sy3.2\obj\Debug\MainWindow.baml
+D:\Workspace\C#网络编程\WpfApp1\sy3.2\obj\Debug\sy3.2.g.resources
+D:\Workspace\C#网络编程\WpfApp1\sy3.2\obj\Debug\sy3._2.Properties.Resources.resources
+D:\Workspace\C#网络编程\WpfApp1\sy3.2\obj\Debug\sy3.2.csproj.GenerateResource.cache
+D:\Workspace\C#网络编程\WpfApp1\sy3.2\obj\Debug\sy3.2.csproj.CoreCompileInputs.cache
+D:\Workspace\C#网络编程\WpfApp1\sy3.2\obj\Debug\sy3.2.exe
+D:\Workspace\C#网络编程\WpfApp1\sy3.2\obj\Debug\sy3.2.pdb

@@ -17,4 +17,3 @@ int main(){
 	cout<<mod(a,p,k);
 	return 0;
 }
-

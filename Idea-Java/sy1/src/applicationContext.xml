@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+    <bean id="user1" class="User">
+        <constructor-arg name="id" value="01"/>
+        <constructor-arg name="name" value="张三"/>
+        <constructor-arg name="password" value="123"/>
+    </bean>
+    <bean id="user2" class="User">
+        <property name="id" value="02"/>
+        <property name="name" value="李四"/>
+        <property name="password" value="#{user2.password}"/>
+    </bean>
+    <context:component-scan base-package="com"></context:component-scan>
+</beans>

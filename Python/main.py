@@ -1,10 +1,19 @@
-n, k, b = map(int, input().split())
-ans = 0
+def quick_power_mod(base, exp, mod):
+    result = 1
+    base %= mod
+    while exp > 0:
+        # 如果指数为奇数，则累乘当前的底数
+        if exp % 2 == 1:
+            result = (result * base) % mod
+            # 底数平方
+        base = (base * base) % mod
+        # 指数减半
+        exp //= 2
+    return result
 
-for _ in range(n):
-    x, y = eval(int, input().split())
-    y0 = k * x + b
-    if y == y0:
-        ans += 1
+base = 5
+exp = 97
+mod = 21
 
-print(ans)
+result = quick_power_mod(base, exp, mod)
+print(f"{base}^{exp} mod {mod} = {result}")

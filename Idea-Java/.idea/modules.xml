@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Idea-Java.iml" filepath="$PROJECT_DIR$/.idea/Idea-Java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springTest/springTest.iml" filepath="$PROJECT_DIR$/springTest/springTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sy1/sy1.iml" filepath="$PROJECT_DIR$/sy1/sy1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sy1_aop_bank/sy1_aop_bank.iml" filepath="$PROJECT_DIR$/sy1_aop_bank/sy1_aop_bank.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zy3_BeanInSpring/zy3_BeanInSpring.iml" filepath="$PROJECT_DIR$/zy3_BeanInSpring/zy3_BeanInSpring.iml" />
+    </modules>
+  </component>
+</project>

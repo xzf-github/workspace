@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        style="@style/textStyle_one"
+        android:text="TextView样式一"         />
+    <TextView
+        style="@style/textStyle_two"
+        android:text="TextView样式二"         />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请输入用户名"
+        android:textSize="40sp"
+        android:background="@drawable/editstyle"
+        android:layout_margin="10dp"/>
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:text="美"
+        android:textSize="50sp"
+        android:textColor="#ffffff"
+        android:padding="5dp"
+        android:background="@drawable/btnselector"/>
+
+</LinearLayout>
